@@ -1,0 +1,9 @@
+FROM alpine:latest
+
+ARG TARGETARCH
+ENV TARGETARCH=${TARGETARCH}
+
+RUN set -x && \
+    apk add --no-cache --update gcc musl-dev
+
+CMD ["/tmp/build/scripts/build_app.sh"]
